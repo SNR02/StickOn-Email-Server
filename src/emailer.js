@@ -16,6 +16,9 @@ app.use(cors());
 /*---------Rate Limiter------------*/
 const rateLimit = require('express-rate-limit');
 
+// Enable 'trust proxy' setting
+app.set('trust proxy', true);
+
 // Apply rate limiting to all requests
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
