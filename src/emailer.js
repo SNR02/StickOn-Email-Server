@@ -88,6 +88,9 @@ const axios = require('axios');
 
 const app = express();
 
+// Enable 'trust proxy'
+app.set('trust proxy', true);
+
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
