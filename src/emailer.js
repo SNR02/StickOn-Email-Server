@@ -95,9 +95,18 @@ app.use(bodyParser.json());
 // Enable CORS for all routes
 app.use(cors());
 
-// Verify environment variables
-console.log('Email User:', process.env.EMAIL_USER);
-console.log('Email Pass:', process.env.EMAIL_PASS);
+/*---------Rate Limiter------------*/
+const rateLimit = require('express-rate-limit');
+
+// Apply rate limiting to all requests
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10, // limit each IP to 100 requests per windowMs
+});
+
+// Apply the rate limiting middleware to API calls only
+app.use('/submit-form', limiter);
+
 
 // Set up transporter with your email service credentials
 const transporter = nodemailer.createTransport({
