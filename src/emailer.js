@@ -192,7 +192,7 @@ app.listen(PORT, () => {
 // Keep-alive function to prevent Render instance from spinning down
 function startKeepAlive() {
   const url = `https://stickon-email-server.onrender.com/submit-form`; // Replace with your Render URL
-  const interval = 30000; // Interval in milliseconds (30 seconds)
+  const interval = 5 * 60 * 1000; // Interval in milliseconds (5 mins)
 
   // Minimal valid form data to keep the server active without sending an email
   const formData = {
