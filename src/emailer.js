@@ -167,7 +167,7 @@ app.post('/submit-form', async (req, res) => {
   const mailOptions = {
     from: `"Form Submission" <${process.env.EMAIL_USER}>`,
     to: recipients,
-    subject: `New ${formData.formName} Submission`,
+    subject: `New ${formData.formType} Submission`,
     html: htmlContent,
   };
 
