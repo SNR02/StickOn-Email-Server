@@ -154,7 +154,7 @@ app.post('/submit-form', async (req, res) => {
   }
 
   // Dynamically create HTML content
-  let htmlContent = `<h1>New Form Submission from ${formData.formName}</h1>`;
+  let htmlContent = `<h1>New Form Submission`;
   Object.keys(formData).forEach(key => {
     if (key == 'formName') {
       htmlContent = "";
